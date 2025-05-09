@@ -36,3 +36,20 @@ python manage.py migrate
 
 Iniciando o servidor:
 python manage.py runserver
+
+Acesse a API pelo endereço: http://127.0.0.1:8000/
+
+Testes
+Para rodar os testes:
+
+bash
+Copiar
+Editar
+python manage.py test
+Contribuições
+Sinta-se à vontade para contribuir! Abra um pull request ou envie uma issue.
+
+Licença
+Este projeto está licenciado sob a MIT License.
+
+
