@@ -1,0 +1,29 @@
+# Ambiente virtual
+venv/
+.env
+
+# Arquivos compilados do Python
+__pycache__/
+*.py[cod]
+
+# Banco de dados SQLite (se estiver usando)
+*.sqlite3
+
+# Arquivos de migração gerados automaticamente (opcional)
+*.log
+
+# Configurações do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Configurações do VS Code (opcional)
+.vscode/
+
+# Arquivos de cache do Django
+*.pot
+*.pyc
+*.pyo
+
+# Arquivos de mídia e estáticos gerados
+/media/
+staticfiles/
