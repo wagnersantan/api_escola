@@ -1,0 +1,3 @@
+from .estudantes import EstudanteSerializer, EstudanteSerializerV2
+from .cursos import CursoSerializer
+from .matriculas import MatriculaSerializer, ListMatriculasEstudantesSerializer, ListMatriculaCursoSerializer
