@@ -21,11 +21,11 @@ class SerializerEstudanteTestCase(TestCase):
    
     def test_verifica_campos_serializados_de_estudante(self):
         """ Teste que verifica os campos que estão sendo serializados de estudante"""
-        dados = self.serializer_estudantes.data
+        dados = self.serializer_estudante.data
         self.assertEqual(dados['nome'],self.estudante.nome)
         self.assertEqual(dados['email'],self.estudante.email)
         self.assertEqual(dados['cpf'],self.estudante.cpf)
-        self.assertEqual(dados['data_nascimento'],self.estudante.nome)
-        self.assertEqual(dados['celular'],self.estudante.celular)
+        self.assertEqual(dados['data_nascimento'], str(self.estudante.data_nascimento))
+        self.assertEqual(dados['celular'], self.estudante.celular)
         
    
