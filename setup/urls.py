@@ -1,13 +1,13 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from api_escola.views import (
-    EstudanteViewSet,
-    CursoViewSet,
-    MatriculaViewSet,
-    ListMatriculaEstudante,
-    ListMatriculaCurso
-)
+
+# Importa os ViewSets e Views customizadas (de forma clara e sem duplicidade)
+from api_escola.routers.estudantes_router import EstudanteViewSet, ListMatriculaEstudante
+from api_escola.routers.cursos_router import CursoViewSet, ListMatriculaCurso
+from api_escola.routers.matriculas_router import MatriculaViewSet
+
+# Documentação automática
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
@@ -31,8 +31,14 @@ router.register('matriculas', MatriculaViewSet, basename='Matriculas')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('estudantes/<int:pk>/matriculas/', ListMatriculaEstudante.as_view()),
-    path('cursos/<int:pk>/matriculas/', ListMatriculaCurso.as_view()),
+
+    # Rotas customizadas para listar matrículas por estudante e curso
+    path('estudantes/<int:pk>/matriculas/', ListMatriculaEstudante.as_view(), name='estudante-matriculas'),
+    path('cursos/<int:pk>/matriculas/', ListMatriculaCurso.as_view(), name='curso-matriculas'),
+
+    # Rotas da documentação automática (Swagger e Redoc)
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    
 ]
+
